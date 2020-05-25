@@ -1,31 +1,24 @@
 package com.tck.controller;
 
-import com.tck.model.VideoGrabber;
+import com.tck.model.MediaObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import javax.validation.Valid;
-import java.util.Map;
+
 @Controller
 public class VideoController {
 
-
     @GetMapping("video")
-    public String video (Map<String,Object> model){
-
+    public String video (@ModelAttribute ("video")MediaObject mediaObject){
         return "video";
     }
-//    @PostMapping("")
-//    public String addRegistration(@Valid @ModelAttribute("registration") VideoGrabber videoGrabber, BindingResult result){
-//
-////        if (result.hasErrors()){
-////            System.out.println("Errors occurred");
-////            return "registration";
-////        }
-////        System.out.println("Registration: " + videoGrabber.getName());
-////        return "redirect:registration";
-//    }
+
+    @PostMapping("video")
+    public String getVideo(@Valid @ModelAttribute("url") MediaObject mediaObject, BindingResult result){
+        System.out.println("The URL is: " + mediaObject.getUrl());
+        return "redirect:video";
+    }
 }

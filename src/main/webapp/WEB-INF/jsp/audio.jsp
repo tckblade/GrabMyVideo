@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <html lang="en">
-<title>GrabMyVideo</title>
+<title>Audio</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 body,h1 {font-family: "Raleway", Arial, sans-serif}
 h1 {letter-spacing: 6px}
@@ -19,14 +20,23 @@ h1 {letter-spacing: 6px}
     <!-- Header -->
     <header class="w3-panel w3-center w3-opacity" style="padding:128px 16px">
         <h1 class="w3-xlarge">GrabMyVideo</h1>
-        <h1>Get the link, Paste it in & wait for the magic!</h1>
-
+        <h1>Get link, Paste it & Press go!</h1>
         <div class="w3-padding-32">
             <div class="w3-bar w3-border">
-                <div class="w3-container">
-                    <h2>With a Container</h2>
-                    <p>The w3-container class is one of the most important W3.CSS classes.</p>
-                    <p>It provides correct margins, padding, alignments, and more, to most HTML elements.</p>
+                <div class="w3-container" style="width:300px">
+                    <h2>Download as MP3</h2>
+                    <hr>
+                      <form:form method="POST" modelAttribute="audio">
+                        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+                                <form:input path="url" cssClass="w3-input w3-border" type="text" placeholder="Paste Link Here..."/>
+                                <button class="w3-button w3-black w3-section"  type="submit" onclick="document.getElementById('id01').style.display='block'">Go</button>
+                                <div id="id01" class="w3-panel w3-blue w3-display-container" style="display:none">
+                                  <span onclick="this.parentElement.style.display='none'"
+                                  class="w3-button w3-blue w3-display-topright">x</span>
+                                  <p>Please wait for download to start.</p>
+                                </div>
+                        </div>
+                      </form:form>
                 </div>
             </div>
         </div>
@@ -44,9 +54,7 @@ h1 {letter-spacing: 6px}
     <i class="fa fa-pinterest-p w3-hover-opacity"></i>
     <i class="fa fa-twitter w3-hover-opacity"></i>
     <i class="fa fa-linkedin w3-hover-opacity"></i>
-    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a>
-    </p>
+    <p>Created by Tolga Komur</p>
 </footer>
-
 </body>
 </html>
