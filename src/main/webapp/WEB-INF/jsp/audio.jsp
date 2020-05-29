@@ -33,7 +33,7 @@ h1 {letter-spacing: 6px}
                                 <div id="id01" class="w3-panel w3-blue w3-display-container" style="display:none">
                                   <span onclick="this.parentElement.style.display='none'"
                                   class="w3-button w3-blue w3-display-topright">x</span>
-                                  <p>Please wait for download to start.</p>
+                                  <p>Please wait while processing.</p>
                                 </div>
                         </div>
                       </form:form>
