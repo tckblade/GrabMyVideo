@@ -22,7 +22,7 @@ public class AudioController {
     @PostMapping("audio")
     public String getVideo(@Valid @ModelAttribute("url") MediaObject mediaObject, BindingResult result){
         videoGrabber = new VideoGrabber();
-        videoGrabber.run(mediaObject.getUrl(),"-x --audio-format mp3");
+        videoGrabber.run(mediaObject.getUrl(),"-x --audio-format mp3 -o '%(title)s.%(ext)s'");
         return "redirect:audio";
     }
 
