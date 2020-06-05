@@ -1,2 +1,2 @@
 # GrabMyVideo
-# Philip Noble was here.
+This is a project for me to learn Spring Framework.
